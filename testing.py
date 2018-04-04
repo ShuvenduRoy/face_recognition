@@ -81,6 +81,15 @@ def img_to_encoding(image_path, model):
     return embedding
 
 
+def fr_loss(true, pred, model):
+    encoding_image = img_to_encoding_batch(true, model)
+    encoding_identity = img_to_encoding_batch(pred, model)
+
+    # dist = np.linalg.norm(encoding_image - encoding_identity, axis=1)
+    loss = K.mean(encoding_image - encoding_identity, axis=-1)
+    return loss
+
+
 def verify(image_path, identity, model):
     """
     Function that verifies if the person on the "image_path" image is "identity".
