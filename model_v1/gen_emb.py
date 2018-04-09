@@ -1,10 +1,6 @@
 from keras.models import load_model
 import cv2
 import numpy as np
-from numpy import genfromtxt
-import pandas as pd
-import tensorflow as tf
-import utils as K
 
 np.set_printoptions(threshold=np.nan)
 
